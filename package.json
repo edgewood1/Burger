@@ -1,0 +1,26 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "Submit the name of a burger and click the button to devour it - a record of this process will be kept",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgewood1/Burger.git"
+  },
+  "author": "Mel DeJesus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edgewood1/Burger/issues"
+  },
+  "homepage": "https://github.com/edgewood1/Burger#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.8",
+    "mysql": "^2.13.0"
+  }
+}
