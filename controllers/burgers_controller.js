@@ -1,6 +1,40 @@
-Inside your burger directory, create a folder named controllers.
-In controllers, create the burgers_controller.js file.
-Inside the burgers_controller.js file, import the following:
-Express
-burger.js
-Create the router for the app, and export the router at the end of your file.
+var express = require("express");
+
+var router = express.Router();
+
+// Import the model (cat.js) to use its database functions.
+var project = require("../models/burger.js");
+
+// Create all our routes and set up logic within those routes where required.
+router.get("/", function(req, res) {
+  project.selectAll(function(data) {
+    var hbsObject = {
+      projects: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
+  });
+});
+
+router.post("/", function(req, res) {
+  project.insertOne([
+    "project_name", "completed"
+  ], [
+    req.body.project_name, req.body.completed
+  ], function() {
+    res.redirect("/");
+  });
+});
+
+router.put("/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+  
+  project.update({
+    completed: req.body.completed
+  }, condition, function() {
+    res.redirect("/");
+  });
+});
+
+// Export routes for server.js to use.
+module.exports = router;

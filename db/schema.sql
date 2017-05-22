@@ -1,15 +1,13 @@
-CREATE DATABASE wishes_db;
-USE wishes_db;
+CREATE DATABASE projects_db;
+USE projects_db;
 
--- Create the table events.
-CREATE TABLE wishes
+
+CREATE TABLE projects
 (
 id int NOT NULL AUTO_INCREMENT,
-wish varchar(255) NOT NULL,
+project_name varchar(255) NOT NULL,
+completed BOOLEAN DEFAULT false,
+date TIMESTAMP NOT NULL,
 PRIMARY KEY (id)
 );
 
--- Insert a set of records.
-INSERT INTO wishes (wish) VALUES ('I wish to be rich');
-INSERT INTO wishes (wish) VALUES ('I wish to travel.');
-INSERT INTO wishes (wish) VALUES ('I wish to influence');
