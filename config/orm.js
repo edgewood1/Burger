@@ -44,14 +44,14 @@ var orm = {
 
   //INSERT INTO table_name (col1, col2, col3) VALUES (val1, val2, val3);
   insertOne: function(table_name, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table_name;
+    var queryString = "INSERT INTO " + table_name + "(" + cols.toString() + ")" + "VALUES ( " + printQuestionMarks(vals.length) + ")";
 
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
+    // queryString += " (";
+    // queryString += cols.toString();
+    // queryString += ") ";
+    // queryString += "VALUES (";
+    // queryString += printQuestionMarks(vals.length);
+    // queryString += ") ";
 
     console.log(queryString);
 
@@ -80,6 +80,15 @@ var orm = {
 
       cb(result);
     });
+  },
+
+  delete: function(table, condition, cb){
+    var queryString = "DELETE FROM " + table + " WHERE " + condition;
+    connection.query(queryString, function(err,result)
+      {if (err) {throw err;}
+      cb(result);
+      });
+
   }
 };
 
