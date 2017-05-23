@@ -19,6 +19,11 @@ var project = {
     orm.update("projects", objColVals, condition, function(res) {
       cb(res);
     });
+  }, 
+  delete: function(condition, cb) {
+    orm.delete("projects", condition, function(res) {
+      cb(res);
+    });
   }
 };
 
