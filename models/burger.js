@@ -20,12 +20,12 @@ var project = {
       cb(res);
     });
   }, 
-  // delete: function(condition, cb) {
-  //   orm.delete("projects", condition, function(res) {
-  //     cb(res);
-  //   });
-  // }
-};
+  delete: function(condition, cb) {
+    orm.delete("projects", condition, function(res) {
+      cb(res);
+    });
+  }
+}; // end project 
 
 // Export the database functions for the controller (catsController.js).
 module.exports = project;

@@ -36,15 +36,13 @@ router.put("/:id", function(req, res) {
   });
 });
 
-// router.delete("/:id", function(req, res) {
-//   var condition = "id = " +req.params.id;
+router.delete("/:id", function(req, res) {
+  var condition = "id = " +req.params.id;
 
-//   project.delete({
-    
-//   }
-//     completed: 
-//   })
-// })
+  project.delete(condition, function() {res.redirect("/");
+});
+}); //delete ends
+     
 
 // Export routes for server.js to use.
 module.exports = router;
