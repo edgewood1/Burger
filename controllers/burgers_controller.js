@@ -17,6 +17,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
+
   project.insertOne([
     "project_name", "completed"
   ], [
@@ -24,6 +25,7 @@ router.post("/", function(req, res) {
   ], function() {
     res.redirect("/");
   });
+
 });
 
 router.put("/:id", function(req, res) {
